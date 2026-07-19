@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>حاسبة الفاكتر</title>
+<style>
+body{
+font-family:Arial;
+direction:rtl;
+background:#f5f5f5;
+padding:20px;
+}
+.container{
+background:white;
+padding:20px;
+border-radius:10px;
+max-width:500px;
+margin:auto;
+box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+input{
+width:100%;
+padding:10px;
+margin:10px 0;
+}
+button{
+width:100%;
+padding:12px;
+background:#007bff;
+color:white;
+border:none;
+border-radius:5px;
+font-size:18px;
+}
+.result{
+margin-top:20px;
+font-size:20px;
+font-weight:bold;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+<h2>حاسبة الفاكتر</h2>
+
+<label>المعدل</label>
+<input type="number" id="avg" step="0.001">
+
+<label>التسلسل</label>
+<input type="number" id="rank">
+
+<label>عدد الدفعة</label>
+<input type="number" id="total">
+
+<button onclick="calc()">احسب</button>
+
+<div class="result" id="result"></div>
+</div>
+
+<script>
+function calc(){
+let avg=parseFloat(document.getElementById("avg").value);
+let rank=parseFloat(document.getElementById("rank").value);
+let total=parseFloat(document.getElementById("total").value);
+
+let part1=avg/2;
+let part2=((1-(rank/total))*100)/2;
+let factor=part1+part2;
+let score=(factor/100)*30;
+
+document.getElementById("result").innerHTML=
+"الفاكتر = "+factor.toFixed(2)+"<br>الدرجة من 30 = "+score.toFixed(2);
+}
+</script>
+
+</body>
+</html>
